@@ -10,3 +10,8 @@ RUN yarn
 
 COPY . .
 ENTRYPOINT ["yarn", "start"]
+
+ARG PORT=8080
+ARG SITE
+ARG REPORT_HOST
+ARG 

@@ -17,4 +17,4 @@ services:
       - PORT=8080
       - SITE=http://lab.scist.org:33332/login
       - REPORT_HOST=web
-      - FLAG=SCIST{FAKEFLAG}
+      - FLAG=ICED{SVGed_1s_4w3s0m3}
