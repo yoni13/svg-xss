@@ -6,8 +6,7 @@ COPY pyproject.toml poetry.lock .
 RUN /etc/poetry/bin/poetry config virtualenvs.create false && \
     /etc/poetry/bin/poetry install
 COPY . .
+ARG BOT_HOST=ctf1-backend.onrender.com
+ARG BOT_PORT=10000
 USER daemon 
 ENTRYPOINT ["python", "/app/main.py"]
-
-ARG BOT_HOST=bot
-ARG BOT_PORT=8080

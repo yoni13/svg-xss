@@ -11,7 +11,7 @@ RUN yarn
 COPY . .
 ENTRYPOINT ["yarn", "start"]
 
-ARG PORT=8080
-ARG SITE
-ARG REPORT_HOST
+ARG PORT=10000
+ARG SITE=ctf1.onrender.com
+ARG REPORT_HOST=ctf1.onrender.com
 ARG FLAG=ICED{SVGed_1s_4w3s0m3}
