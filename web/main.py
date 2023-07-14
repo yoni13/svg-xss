@@ -5,7 +5,6 @@ from flask import Flask, request, render_template, make_response, redirect, url_
 from dotenv import load_dotenv
 import os
 import requests
-import re
 
 load_dotenv()
 
@@ -73,7 +72,7 @@ def report():
             return r.text()
         except Exception as e:
             print(e)
-            return Response('Something is wrong...'+str(e), status=500)
+            return Response('Something is wrong...'+str(e)+BOT_HOST, status=500)
     return render_template('report.html', username=username)
 
 
