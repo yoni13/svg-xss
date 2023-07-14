@@ -4,7 +4,7 @@ import base64
 from flask import Flask, request, render_template, make_response, redirect, url_for, Response
 from dotenv import load_dotenv
 import os
-import socket
+import requests
 import re
 
 load_dotenv()
@@ -69,21 +69,8 @@ def report():
         print(f'[+] Sending {url} to bot')
 
         try:
-            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            client.connect((BOT_HOST, int(BOT_PORT)))
-            client.sendall(url.encode())
-
-            response = b''
-            while True:
-                data = client.recv(4096)
-                if not data:
-                    break
-                response += data
-
-            client.close()
-
-            return Response(response.decode(), mimetype='text/plain')
-
+            r = requests.get('BOT_HOST'+'/?report='+url)
+            return r.text()
         except Exception as e:
             print(e)
             return Response('Something is wrong...'+str(e), status=500)
