@@ -86,7 +86,7 @@ def report():
 
         except Exception as e:
             print(e)
-            return Response('Something is wrong...'+e, status=500)
+            return Response('Something is wrong...', status=500)
     return render_template('report.html', username=username)
 
 
