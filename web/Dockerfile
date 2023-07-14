@@ -8,3 +8,6 @@ RUN /etc/poetry/bin/poetry config virtualenvs.create false && \
 COPY . .
 USER daemon 
 ENTRYPOINT ["python", "/app/main.py"]
+
+ARG BOT_HOST=bot
+ARG BOT_PORT=8080
