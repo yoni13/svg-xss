@@ -14,6 +14,8 @@ from werkzeug.utils import secure_filename
 
 ALLOWED_EXTENSIONS = set(['ico', 'png', 'jpg', 'jpeg', 'gif', 'svg'])
 UPLOAD_FOLDER = './temp'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB
 
 def allowed_file(filename):
     return '.' in filename and \
