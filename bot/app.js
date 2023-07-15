@@ -19,6 +19,7 @@ app.get("/", function (req, res) {
     }
     res.send('sus')
   }
+  res.send('sus')
 });
   
 app.listen(port, function () {
