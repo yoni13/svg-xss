@@ -64,7 +64,7 @@ def report():
 
         try:
             r = requests.get('https://'+BOT_HOST+'/?report=https://CTF1.onrender.com/upload/' + img_key)
-            return r.text()
+            return r.text
         except Exception as e:
             print(e)
             return Response('Something is wrong...', status=500)
