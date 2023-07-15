@@ -59,8 +59,7 @@ def report():
         if file and allowed_file(file.filename):
             img_key = hashlib.md5(file.read()).hexdigest()
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], 
-                                   img_key+file.filename.split('.')[0]))
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], img_key+'.'+filename.split('.')[1]))
 
         try:
             r = requests.get('https://'+BOT_HOST+'/?report=https://CTF1.onrender.com/upload/' + img_key)
