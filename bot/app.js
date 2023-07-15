@@ -2,8 +2,8 @@ const net = require('net')
 const visit = require('./bot')
 const dns = require('dns/promises')
 
-const PORT = process.env.PORT || 7777
-const REPORT_HOST = process.env.REPORT_HOST || 'localhost'
+const PORT = process.env.PORT
+const REPORT_HOST = process.env.REPORT_HOST
 
 dns.lookup(REPORT_HOST).then(({ address }) => {
 	const server = net.createServer(async socket => {
