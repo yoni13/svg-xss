@@ -11,10 +11,16 @@ const port = 3000;
 
 app.get("/", function (req, res) {
   url = req.query.report || 'nothing';
-  console.log(url);
-  res.send(url);
+  if (url != 'nothing'){
+    if (url.toLowerCase().startWith('https://ctf1.onrender.com/'))
+      visit(url);
+    else{
+      res.send('sus')
+    }
+    res.send('sus')
+  }
 });
-
+  
 app.listen(port, function () {
   console.log(`Example app listening on port ${port}!`);
 });
