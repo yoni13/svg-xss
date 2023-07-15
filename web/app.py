@@ -22,7 +22,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 BOT_HOST = os.getenv('BOT_HOST')
-
+print(BOT_HOST)
 
 @app.route('/')
 def home():
@@ -60,14 +60,14 @@ def report():
             img_key = hashlib.md5(file.read()).hexdigest()
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], 
-                                   img_key))
+                                   img_key+file.filename.split('.')[0]))
 
         try:
             r = requests.get('https://'+BOT_HOST+'/?report=https://CTF1.onrender.com/upload/' + img_key)
             return r.text()
         except Exception as e:
             print(e)
-            return Response('Something is wrong...'+str(e)+BOT_HOST, status=500)
+            return Response('Something is wrong...', status=500)
     return render_template('report.html', username=username)
 
 @app.route('/uploads/<filename>')
