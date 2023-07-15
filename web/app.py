@@ -1,5 +1,5 @@
 
-import base64
+import base64, hashlib
 
 from flask import Flask, request, render_template, make_response, redirect, url_for, Response, send_from_directory
 from dotenv import load_dotenv
@@ -57,12 +57,13 @@ def report():
     if request.method == 'POST':
         file = request.files['file']
         if file and allowed_file(file.filename):
+            img_key = hashlib.md5(file.read()).hexdigest()
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], 
-                                   filename))
+                                   img_key))
 
         try:
-            r = requests.get('https://'+BOT_HOST+'/?report=https://CTF1.onrender.com/upload/' + filename)
+            r = requests.get('https://'+BOT_HOST+'/?report=https://CTF1.onrender.com/upload/' + img_key)
             return r.text()
         except Exception as e:
             print(e)
