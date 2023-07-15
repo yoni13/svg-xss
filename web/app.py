@@ -22,7 +22,6 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 BOT_HOST = os.getenv('BOT_HOST')
-BOT_PORT = os.getenv('BOT_PORT')
 
 
 @app.route('/')
@@ -63,7 +62,7 @@ def report():
                                    filename))
 
         try:
-            r = requests.get('BOT_HOST'+'/?report=' + url_for('uploaded_file',
+            r = requests.get(BOT_HOST+'/?report=' + url_for('uploaded_file',
                                     filename=filename))
             return r.text()
         except Exception as e:
