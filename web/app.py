@@ -62,8 +62,7 @@ def report():
                                    filename))
 
         try:
-            r = requests.get(BOT_HOST+'/?report=' + url_for('uploaded_file',
-                                    filename=filename))
+            r = requests.get(BOT_HOST+'/?report=https://CTF1.onrender.com/upload/' + filename)
             return r.text()
         except Exception as e:
             print(e)
