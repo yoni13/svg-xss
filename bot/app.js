@@ -10,7 +10,7 @@ const app = express();
 const port = 3000;
 
 app.get("/", function (req, res) {
-  url = req.query.report;
+  url = req.query.report || 'nothing';
   console.log(url);
   res.send(url);
 });
