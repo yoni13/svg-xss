@@ -16,6 +16,7 @@ const querystring = require('querystring');
 
 app.get("/", function (req, res) {
   url = req.query.report
+  visit(URL);
   res.send(url);
 });
 
