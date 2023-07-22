@@ -62,7 +62,7 @@ def report():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], img_key+'.'+filename.split('.')[1]))
 
         try:
-            r = requests.get('https://'+BOT_HOST+'/?report=https://CTF1.onrender.com/upload/' + img_key)
+            r = requests.get('https://'+BOT_HOST+'/?report=https://CTF1.onrender.com/upload/' + img_key+'.'+filename.split('.')[1])
             return r.text
         except Exception as e:
             print(e)
