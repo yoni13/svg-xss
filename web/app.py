@@ -62,10 +62,12 @@ def report():
             saveas = img_key+'.'+filename.split('.')[1]
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],saveas))
 
-        try:
+          try:
             r = requests.get('https://'+BOT_HOST+'/?report=https://CTF1.onrender.com/uploads/' + saveas)
             return r.text
-        except Exception as e:
+        else:
+           return 'sus'
+          except Exception as e:
             print(e)
             return Response('Something is wrong...', status=500)
     return render_template('report.html', username=username)
