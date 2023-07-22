@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 
-const SITE = process.env.SITE || 'http://localhost:8763';
+const SITE = process.env.SITE || 'https://ctf1.onrender.com/';
 const FLAG = process.env.FLAG || 'test{flag}';
 
 const sleep = async s => new Promise(resolve => setTimeout(resolve, 1000 * s));

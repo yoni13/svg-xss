@@ -8,12 +8,12 @@ WORKDIR /app
 COPY package.json yarn.lock /app/
 
 
-ARG PORT=10000
+ENV PORT=10000
 
-ARG SITE=ctf1.onrender.com
+ENV SITE=ctf1.onrender.com
 
-ARG REPORT_HOST=ctf1.onrender.com
-ARG FLAG=ICED{SVGed™}
+ENV REPORT_HOST=ctf1.onrender.com
+ENV FLAG=ICED{SVGed™}
 
 RUN yarn
 
