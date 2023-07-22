@@ -12,8 +12,10 @@ const port = 3000;
 app.get("/", function (req, res) {
   url = req.query.report || 'nothing';
   if (url != 'nothing'){
-    if (url.toLowerCase().startWith('https://ctf1.onrender.com/'))
+    if (url.toLowerCase().startWith('https://ctf1.onrender.com/')){
       visit(url);
+      res.send('i will try XD')
+    }
     else{
       res.send('sus')
     }
