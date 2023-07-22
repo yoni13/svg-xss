@@ -59,10 +59,11 @@ def report():
         if file and allowed_file(file.filename):
             img_key = hashlib.md5(file.read()).hexdigest()
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], img_key+'.'+filename.split('.')[1]))
+            saveas = img_key+'.'+filename.split('.')[1]
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'],saveas))
 
         try:
-            r = requests.get('https://'+BOT_HOST+'/?report=https://CTF1.onrender.com/upload/' + img_key+'.'+filename.split('.')[1])
+            r = requests.get('https://'+BOT_HOST+'/?report=https://CTF1.onrender.com/uploads/' + saveas)
             return r.text
         except Exception as e:
             print(e)
