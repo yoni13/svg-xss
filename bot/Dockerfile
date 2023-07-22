@@ -13,7 +13,7 @@ ENV PORT=10000
 ENV SITE=https://ctf1.onrender.com
 
 ENV REPORT_HOST=https://ctf1.onrender.com
-ENV FLAG=ICED{SVGed™}
+ENV FLAG=ICED{doraemom_and_chingmu}
 
 RUN yarn
 
