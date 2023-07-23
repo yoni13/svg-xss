@@ -8,11 +8,6 @@ WORKDIR /app
 COPY package.json yarn.lock /app/
 
 
-ENV SITE=https://ctf1.onrender.com
-
-ENV REPORT_HOST=https://ctf1.onrender.com
-ENV FLAG=ICED{doraemom_and_chingmu}
-
 RUN yarn
 
 EXPOSE 3000
