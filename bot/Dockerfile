@@ -15,5 +15,7 @@ ENV FLAG=ICED{doraemom_and_chingmu}
 
 RUN yarn
 
+EXPOSE 3000
+
 COPY . .
 ENTRYPOINT ["yarn", "start"]
