@@ -10,6 +10,17 @@ import re
 load_dotenv()
 
 app = Flask(__name__)
+
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=[],
+    storage_uri="memory://",
+)
+
 from werkzeug.utils import secure_filename
 
 ALLOWED_EXTENSIONS = set(['ico', 'png', 'jpg', 'jpeg', 'gif', 'svg'])
@@ -50,6 +61,7 @@ def logout():
 
 
 @app.route('/report', methods=['GET', 'POST'])
+@limiter.limit("1/3second")
 def report():
     username = request.cookies.get('username')
     if not username:
