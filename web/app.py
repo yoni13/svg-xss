@@ -48,7 +48,7 @@ def login():
     if request.method == 'POST':
         user = request.form['username']
         resp = make_response(redirect(url_for('home')))
-        resp.set_cookie('username', user, httponly=True)
+        resp.set_cookie('username', user, httponly=False)
         return resp
     return render_template('login.html', username=request.cookies.get('username'))
 
