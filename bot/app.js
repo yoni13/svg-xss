@@ -11,17 +11,18 @@ const port = 3000;
 
 app.get("/", function (req, res) {
   url = req.query.report || 'nothing';
-  if (url != 'nothing'){
+  if (url != 'nothing'){// url is not nothing
     if (url.toLowerCase().startsWith('https://ctf1.onrender.com/')){
       visit(url);
       res.send('i will try XD')
     }
-    else{
+    else{// url doesn't start with a cool url
       res.send('sus')
     }
+  }
+  else{// url is nothing
     res.send('sus')
   }
-  res.send('sus')
 });
   
 app.listen(port, function () {
