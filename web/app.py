@@ -75,7 +75,10 @@ def report():
             file.seek(0)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],saveas))
             try:
-                r = requests.get('https://'+BOT_HOST+'/?report=https://CTF1.onrender.com/uploads/' + saveas)
+                if os.getenv('RENDER'):
+                   r = requests.get('https://'+BOT_HOST+'/?report=https://CTF1.onrender.com/uploads/' + saveas)
+                else:
+                    r = requests.get('https://'+BOT_HOST+'/?report=https://animemememshare-main.web.nehs.nicewhite.xyz/uploads/' + saveas)
                 return r.text
             except Exception as e:
                 print(e)
