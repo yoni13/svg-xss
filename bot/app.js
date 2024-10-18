@@ -3,6 +3,7 @@ const net = require('net')
 const visit = require('./bot')
 
 const PORT = process.env.PORT
+const IS_RENDER = proccess.env.RENDER
 const REPORT_HOST = process.env.REPORT_HOST
 
 const express = require("express");
@@ -13,6 +14,10 @@ app.get("/", function (req, res) {
   url = req.query.report || 'nothing';
   if (url != 'nothing'){// url is not nothing
     if (url.toLowerCase().startsWith('https://ctf1.onrender.com/')){
+      visit(url);
+      res.send('i will try XD')
+    }
+    else if (!IS_RENDER && url.toLowerCase().startsWith('https://animememeshare-main.web.nehs.nicewhote.xyz/')){
       visit(url);
       res.send('i will try XD')
     }
