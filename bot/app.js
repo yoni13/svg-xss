@@ -3,7 +3,7 @@ const net = require('net')
 const visit = require('./bot')
 
 const PORT = process.env.PORT
-const IS_RENDER = proccess.env.RENDER
+const IS_RENDER = process.env.RENDER
 const REPORT_HOST = process.env.REPORT_HOST
 
 const express = require("express");
