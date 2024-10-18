@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy your Python script file (replace "your_script.py" with your actual filename)
-COPY app.py .
+COPY . .
 
 # Set the command to run your Python script when the container starts
 CMD ["python", "app.py"]
