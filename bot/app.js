@@ -17,7 +17,7 @@ app.get("/", function (req, res) {
       visit(url);
       res.send('i will try XD')
     }
-    else if (!IS_RENDER && url.toLowerCase().startsWith('https://animememeshare-main.web.nehs.nicewhote.xyz/')){
+    else if (!IS_RENDER && url.toLowerCase().startsWith('https://animememeshare-main.web.nehs.nicewhite.xyz/')){
       visit(url);
       res.send('i will try XD')
     }
