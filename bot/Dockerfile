@@ -1,4 +1,4 @@
-FROM node:17-alpine
+FROM node:23-alpine
 RUN echo "https://mirror.twds.com.tw/alpine/v3.10/main" > /etc/apk/repositories ; \
     echo "https://mirror.twds.com.tw/alpine/v3.10/community" >> /etc/apk/repositories ;
     
